@@ -33,7 +33,6 @@ import vista.Ventana;
  * @author Grupo 3. <br>
  *         Clase Controlador. <br>
  *         Descripcion: Funciona como nexo entre el modelo y la vista.
- * @param persistencia
  */
 public class Controlador implements ActionListener, ListSelectionListener, Observer
 {

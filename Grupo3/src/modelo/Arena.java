@@ -28,6 +28,7 @@ public class Arena extends Observable implements Serializable {
 
 	/**
 	 * Descripcion: Metodo encargado de setear el estado de la arena.<br>
+	 * @param estado Estado al cual voy a setear.
 	 */
 	public void setEstado(IState estado) {
 		this.estado = estado;
@@ -36,6 +37,9 @@ public class Arena extends Observable implements Serializable {
 	/**
 	 * Descripcion: Metodo sincronizado encargado de bloquear el recurso compartido
 	 * cuando un hilo esta utilizandolo.<br>
+	 * @param ent1 Entrenador 1 a pelear en la arena.<br>
+	 * @param ent2 Entrenador 2 a pelear en la arena.
+	 *  
 	 */
 	public synchronized void iniciar(Entrenador ent1, Entrenador ent2) {
 		this.disponible = false;

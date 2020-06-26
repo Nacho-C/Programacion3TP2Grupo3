@@ -18,8 +18,9 @@ public class Enfrentamiento extends Thread implements Serializable {
 	/**
 	 * Descripción: Crea un nuevo enfrentamiento con los entrenadores pasados por
 	 * parametro. <br>
-	 * <b>Pre:</b> Ninguno de los entrenadores pasados por parametro puede ser null.
-	 * <br>
+	 * <b>Pre:</b> Ninguno de los entrenadores pasados por parametro puede ser null.<br>
+	 * @param entrenador1 Entrenador a pelear en la arena.<br>
+	 * @param entrenador2 Entrenador 2 a pelear en la arena.
 	 */
 	public Enfrentamiento(Entrenador entrenador1, Entrenador entrenador2) {
 		this.entrenador1 = entrenador1;

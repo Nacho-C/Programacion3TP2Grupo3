@@ -13,8 +13,9 @@ public class PokemonFactory
 	 * <br>
 	 * <b>Post:</b> Si el tipo no es ninguno de los predefinidos el Pokemon devuelto es null.
 	 * <br>
-	 * @param nombre Nombre del Pokemon a crear.
-	 * @param tipo Tipo del pokemon a crear (Hielo, Fuego, etc.)
+	 * @param nombre Nombre del Pokemon a crear.<br>
+	 * @param tipo Tipo del pokemon a crear (Hielo, Fuego, etc.)<br>
+	 * @return Pokemon retorno del Pokemon creado.
 	 */
 	public static Pokemon getPokemon(String nombre,String tipo)
 	{

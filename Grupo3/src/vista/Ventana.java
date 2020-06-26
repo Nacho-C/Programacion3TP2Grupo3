@@ -29,16 +29,16 @@ import javax.swing.event.ListSelectionListener;
 
 import modelo.Entrenador;
 import modelo.Pokemon;
+
 /**
- * @author Grupo 3.
- * <br>
- * Clase Ventana.
- * <br>
- * Descripcion: La clase Ventana se extiende de JFrame e implementa las interfaces KeyListener y ListSelectionListener. Esta clase conecta el controlador con el usuario.<br>
+ * @author Grupo 3. <br>
+ *         Clase Ventana. <br>
+ *         Descripcion: La clase Ventana se extiende de JFrame e implementa las
+ *         interfaces KeyListener y ListSelectionListener. Esta clase conecta el
+ *         controlador con el usuario.<br>
  */
 
-public class Ventana extends JFrame implements KeyListener, ListSelectionListener
-{
+public class Ventana extends JFrame implements KeyListener, ListSelectionListener {
 
 	private JPanel panelTodo;
 	private JPanel panelInferior;
@@ -118,12 +118,13 @@ public class Ventana extends JFrame implements KeyListener, ListSelectionListene
 	private JTextPane textoVitalidad;
 	private JTextPane textoFuerza;
 	private JTextPane textoEscudo;
-	
+
 	/**
 	 * Descripcion: Constructor encargado de generar todas las componentes.<br>
+	 * 
+	 * @param etapa Etapa actual del torneo.
 	 */
-	public Ventana(int etapa)
-	{
+	public Ventana(int etapa) {
 		setResizable(false);
 		this.etapa = etapa;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -197,36 +198,36 @@ public class Ventana extends JFrame implements KeyListener, ListSelectionListene
 		this.labelPokemones.setFont(new Font("Tahoma", Font.BOLD, 15));
 		this.labelPokemones.setHorizontalAlignment(SwingConstants.CENTER);
 		this.scrollPokemones.setColumnHeaderView(this.labelPokemones);
-		
+
 		this.panelDetallePokemones = new JPanel();
 		this.panelPokemones.add(this.panelDetallePokemones, BorderLayout.SOUTH);
 		this.panelDetallePokemones.setLayout(new GridLayout(3, 2, 0, 3));
-		
+
 		this.labelVitalidad = new JLabel("Vitalidad: ");
 		this.labelVitalidad.setHorizontalAlignment(SwingConstants.TRAILING);
 		this.labelVitalidad.setFont(new Font("Tahoma", Font.BOLD, 15));
 		this.panelDetallePokemones.add(this.labelVitalidad);
-		
+
 		this.textoVitalidad = new JTextPane();
 		this.textoVitalidad.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		this.textoVitalidad.setEditable(false);
 		this.panelDetallePokemones.add(this.textoVitalidad);
-		
+
 		this.labelFuerza = new JLabel("Fuerza: ");
 		this.labelFuerza.setHorizontalAlignment(SwingConstants.TRAILING);
 		this.labelFuerza.setFont(new Font("Tahoma", Font.BOLD, 15));
 		this.panelDetallePokemones.add(this.labelFuerza);
-		
+
 		this.textoFuerza = new JTextPane();
 		this.textoFuerza.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		this.textoFuerza.setEditable(false);
 		this.panelDetallePokemones.add(this.textoFuerza);
-		
+
 		this.labelEscudo = new JLabel("Escudo: ");
 		this.labelEscudo.setHorizontalAlignment(SwingConstants.TRAILING);
 		this.labelEscudo.setFont(new Font("Tahoma", Font.BOLD, 15));
 		this.panelDetallePokemones.add(this.labelEscudo);
-		
+
 		this.textoEscudo = new JTextPane();
 		this.textoEscudo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		this.textoEscudo.setEditable(false);
@@ -467,16 +468,16 @@ public class Ventana extends JFrame implements KeyListener, ListSelectionListene
 		this.setVisible(true);
 	}
 
-	public void keyPressed(KeyEvent arg0)
-	{
+	public void keyPressed(KeyEvent arg0) {
 	}
-	
+
 	/**
-	 * Descripcion: Validacion de condiciones para habilitar o no el boton de AltaPokemon y de AltaEntrenador.<br>
-	 * @param KeyEvent arg0 evento de la vista a evaluar.
+	 * Descripcion: Validacion de condiciones para habilitar o no el boton de
+	 * AltaPokemon y de AltaEntrenador.<br>
+	 * 
+	 * @param arg0 evento de la vista a evaluar.
 	 */
-	public void keyReleased(KeyEvent arg0)
-	{
+	public void keyReleased(KeyEvent arg0) {
 		JTextField texto = (JTextField) arg0.getSource();
 		if (this.etapa == 1)
 			if (!texto.getText().isEmpty() && !texto.getText().isBlank())
@@ -491,12 +492,10 @@ public class Ventana extends JFrame implements KeyListener, ListSelectionListene
 				this.botonAltaPokemon.setEnabled(false);
 	}
 
-	public void keyTyped(KeyEvent arg0)
-	{
+	public void keyTyped(KeyEvent arg0) {
 	}
 
-	public void setActionListener(ActionListener a)
-	{
+	public void setActionListener(ActionListener a) {
 		this.botonAltaEntrenador.addActionListener(a);
 		this.botonBajaEntrenador.addActionListener(a);
 		this.botonAltaPokemon.addActionListener(a);
@@ -505,44 +504,41 @@ public class Ventana extends JFrame implements KeyListener, ListSelectionListene
 		this.actionListener = a;
 	}
 
-	public void setListSelectionListener(ListSelectionListener l)
-	{
+	public void setListSelectionListener(ListSelectionListener l) {
 		this.listaEntrenadoresVivos.addListSelectionListener(l);
 		this.listaPokemones.addListSelectionListener(l);
 		this.listaClasificaciones.addListSelectionListener(l);
 	}
 
-	public JCheckBox getCheckNiebla()
-	{
+	public JCheckBox getCheckNiebla() {
 		return this.checkNiebla;
 	}
 
-	public JCheckBox getCheckTormenta()
-	{
+	public JCheckBox getCheckTormenta() {
 		return this.checkTormenta;
 	}
 
-	public JCheckBox getCheckViento()
-	{
+	public JCheckBox getCheckViento() {
 		return this.checkViento;
 	}
 
-	public JTextField getTextoNombreEntrenador()
-	{
+	public JTextField getTextoNombreEntrenador() {
 		return this.textoNombreEntrenador;
 	}
 
-	public JList getListaEntrenadoresVivos()
-	{
+	public JList getListaEntrenadoresVivos() {
 		return this.listaEntrenadoresVivos;
 	}
+
 	/**
-	 * Descripcion: Validacion de condiciones para habilitar o no el boton de BajaEntrenador y de BajaPokemon , y refrezca las listas al seleccionar un entrenador<br>
-	 * @param ListSelectionEvent arg0 evento de la vista a evaluar.
+	 * Descripcion: Validacion de condiciones para habilitar o no el boton de
+	 * BajaEntrenador y de BajaPokemon , y refrezca las listas al seleccionar un
+	 * entrenador<br>
+	 * 
+	 * @param arg0 evento de la vista a evaluar.
 	 */
 	@Override
-	public void valueChanged(ListSelectionEvent arg0)
-	{
+	public void valueChanged(ListSelectionEvent arg0) {
 		JList lista = (JList) arg0.getSource();
 		if (lista == this.listaEntrenadoresVivos)
 			if (this.etapa == 1)
@@ -550,18 +546,15 @@ public class Ventana extends JFrame implements KeyListener, ListSelectionListene
 					this.botonBajaEntrenador.setEnabled(true);
 				else
 					this.botonBajaEntrenador.setEnabled(false);
-			else
-			{
+			else {
 				this.modeloListaPokemones.clear();
-				if (lista.getSelectedValue() != null)
-				{
+				if (lista.getSelectedValue() != null) {
 					Entrenador entrenador = (Entrenador) lista.getSelectedValue();
 					Iterator<Pokemon> it = entrenador.getItPokemones();
 					while (it.hasNext())
 						this.modeloListaPokemones.addElement(it.next());
 				}
-				if (this.etapa == 2)
-				{
+				if (this.etapa == 2) {
 					if (!this.textoNombrePokemon.getText().isEmpty() && !textoNombrePokemon.getText().isBlank()
 							&& lista.getSelectedValue() != null)
 						this.botonAltaPokemon.setEnabled(true);
@@ -569,136 +562,111 @@ public class Ventana extends JFrame implements KeyListener, ListSelectionListene
 						this.botonAltaPokemon.setEnabled(false);
 				}
 			}
-		else
-			if (lista.getSelectedValue() != null)
-			{
-				Pokemon pokemon = (Pokemon) lista.getSelectedValue();
-				this.botonBajaPokemon.setEnabled(true);
-				this.textoVitalidad.setText("" + pokemon.getVitalidad());
-				this.textoFuerza.setText("" + pokemon.getFuerza());
-				this.textoEscudo.setText("" + pokemon.getEscudo());
-			}
-			else
-			{
-				this.botonBajaPokemon.setEnabled(false);
-				this.textoVitalidad.setText("");
-				this.textoFuerza.setText("");
-				this.textoEscudo.setText("");
-			}
+		else if (lista.getSelectedValue() != null) {
+			Pokemon pokemon = (Pokemon) lista.getSelectedValue();
+			this.botonBajaPokemon.setEnabled(true);
+			this.textoVitalidad.setText("" + pokemon.getVitalidad());
+			this.textoFuerza.setText("" + pokemon.getFuerza());
+			this.textoEscudo.setText("" + pokemon.getEscudo());
+		} else {
+			this.botonBajaPokemon.setEnabled(false);
+			this.textoVitalidad.setText("");
+			this.textoFuerza.setText("");
+			this.textoEscudo.setText("");
+		}
 	}
 
-	public JList getListaPokemones()
-	{
+	public JList getListaPokemones() {
 		return this.listaPokemones;
 	}
 
-	public JTextArea getTextoSalidaGeneral()
-	{
+	public JTextArea getTextoSalidaGeneral() {
 		return this.textoSalidaGeneral;
 	}
 
-	public JButton getBotonSigEtapa()
-	{
+	public JButton getBotonSigEtapa() {
 		return this.botonSigEtapa;
 	}
 
-	public void setEtapa(int etapa)
-	{
+	public void setEtapa(int etapa) {
 		this.etapa = etapa;
 	}
 
 	/**
 	 * Descripcion: Metodo encargado de actualizar el panel segun la etapa.<br>
 	 */
-	public void refrescarEtapa()
-	{
+	public void refrescarEtapa() {
 		CardLayout layout = (CardLayout) this.switchEtapa.getLayout();
 		this.botonSigEtapa.setEnabled(false);
-		if (this.etapa == -1)
-		{
+		if (this.etapa == -1) {
 			this.labelEtapa.setText("Última etapa - Finalización");
 			this.textoSalidaGeneral.setText(this.textoSalidaGeneral.getText() + "Comienza la etapa de Finalización.\n");
 			layout.show(this.switchEtapa, "ETAPAFINAL");
 		}
-		if (this.etapa == 1)
-		{
+		if (this.etapa == 1) {
 			this.labelEtapa.setText("Etapa: " + this.etapa + " - Alta de Entrenadores");
-			this.textoSalidaGeneral.setText(this.textoSalidaGeneral.getText() + "Comienza la etapa de Alta de Entrenadores.\n");
+			this.textoSalidaGeneral
+					.setText(this.textoSalidaGeneral.getText() + "Comienza la etapa de Alta de Entrenadores.\n");
 			layout.show(this.switchEtapa, "ETAPA1");
+		} else if (this.etapa == 2) {
+			this.botonSigEtapa.setEnabled(true);
+			this.labelEtapa.setText("Etapa: " + this.etapa + " - Alta de Pokemones");
+			this.textoSalidaGeneral
+					.setText(this.textoSalidaGeneral.getText() + "Comienza la etapa de Alta de Pokemones.\n");
+			layout.show(this.switchEtapa, "ETAPA2");
+		} else if (this.etapa >= 3) {
+			this.labelEtapa.setText("Etapa: " + this.etapa + " - Batalla");
+			this.textoSalidaGeneral.setText(
+					this.textoSalidaGeneral.getText() + "Comienza la etapa de batalla  " + (this.etapa - 2) + ".\n");
+			layout.show(this.switchEtapa, "ETAPABATALLA");
+			this.textoArena1.setText("");
+			this.textoArena2.setText("");
+			this.textoArena3.setText("");
+			this.textoArena4.setText("");
 		}
-		else
-			if (this.etapa == 2)
-			{
-				this.botonSigEtapa.setEnabled(true);
-				this.labelEtapa.setText("Etapa: " + this.etapa + " - Alta de Pokemones");
-				this.textoSalidaGeneral.setText(this.textoSalidaGeneral.getText() + "Comienza la etapa de Alta de Pokemones.\n");
-				layout.show(this.switchEtapa, "ETAPA2");
-			}
-			else
-				if (this.etapa >= 3)
-				{
-					this.labelEtapa.setText("Etapa: " + this.etapa + " - Batalla");
-					this.textoSalidaGeneral.setText(this.textoSalidaGeneral.getText() + "Comienza la etapa de batalla  " + (this.etapa - 2) + ".\n");
-					layout.show(this.switchEtapa, "ETAPABATALLA");
-					this.textoArena1.setText("");
-					this.textoArena2.setText("");
-					this.textoArena3.setText("");
-					this.textoArena4.setText("");
-				}
 	}
 
-	public ButtonGroup getButtonGroup()
-	{
+	public ButtonGroup getButtonGroup() {
 		return this.buttonGroup;
 	}
 
-	public JTextField getTextoNombrePokemon()
-	{
+	public JTextField getTextoNombrePokemon() {
 		return this.textoNombrePokemon;
 	}
 
-	public JTextArea getTextoArena1()
-	{
+	public JTextArea getTextoArena1() {
 		return this.textoArena1;
 	}
 
-	public JTextArea getTextoArena2()
-	{
+	public JTextArea getTextoArena2() {
 		return this.textoArena2;
 	}
 
-	public JTextArea getTextoArena3()
-	{
+	public JTextArea getTextoArena3() {
 		return this.textoArena3;
 	}
 
-	public JTextArea getTextoArena4()
-	{
+	public JTextArea getTextoArena4() {
 		return this.textoArena4;
 	}
 
-	public JList getListaClasificiones()
-	{
+	public JList getListaClasificiones() {
 		return this.listaClasificaciones;
 	}
 
-	public JTextArea getTextoReporte()
-	{
+	public JTextArea getTextoReporte() {
 		return this.textoReporte;
 	}
-	
-	public JTextPane getTextoVitalidad()
-	{
+
+	public JTextPane getTextoVitalidad() {
 		return this.textoVitalidad;
 	}
-	
-	public JTextPane getTextoFuerza()
-	{
+
+	public JTextPane getTextoFuerza() {
 		return this.textoFuerza;
 	}
-	
-	public JTextPane getTextoEscudo()
-	{
+
+	public JTextPane getTextoEscudo() {
 		return this.textoEscudo;
 	}
 }

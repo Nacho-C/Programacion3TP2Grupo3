@@ -164,6 +164,7 @@ public class Torneo implements Serializable
 	/**
 	 * Descripcion: Devuelve un conjunto ordenado por clasificacion de los
 	 * entrenadores que entraron al torneo.<br>
+	 * @return TreeSet retorno del TreeSet que contiene a los entrenadores ordenados segun su clasificacion.
 	 */
 	public TreeSet<Entrenador> getClasificaciones()
 	{
